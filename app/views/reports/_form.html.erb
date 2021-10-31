@@ -16,6 +16,27 @@
     <%= form.text_field :title %>
   </div>
 
+  <div class="work_items">
+    <table>
+      <thead>
+        <tr>
+          <th>作業内容</th>
+          <th>報告日</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @work_items = WorkItem.all %>
+        <% @work_items.each do |work_item| %>
+          <tr>
+            <td><%= work_item.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
   <div class="field">
     <%= form.label :内容 %>
     <%= form.text_field :content %>
