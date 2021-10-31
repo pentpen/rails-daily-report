@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>タイトル:</strong>
+  <%= @report.title %>
+</p>
+
+<p>
+  <strong>内容:</strong>
+  <%= @report.content %>
+</p>
+
+<p>
+  <strong>報告日:</strong>
+  <%= @report.reported %>
+</p>
+
+<%= link_to '編集', edit_report_path(@report) %> |
+<%= link_to '戻る', reports_path %>
