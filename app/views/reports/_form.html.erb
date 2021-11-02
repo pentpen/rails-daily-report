@@ -28,10 +28,10 @@
 
       <tbody>
         <% @work_items = WorkItem.all %>
-        <% @work_items.each do |work_item, index| %>
+        <% @work_items.each_with_index do |work_item, index| %>
           <tr>
-            <td><label class="form-check-label" for="<% index %>"><%= work_item.name %></td>
-            <td><input class="form-check-input" type="checkbox" id="<% index %>" onchange="generate_text()"></td>
+            <td><label class="form-check-label" for="<%= index %>"><%= work_item.name %></td>
+            <td><input class="form-check-input" type="checkbox" id="<%= index %>" onchange="generate_text()"></td>
           </tr>
         <% end %>
       </tbody>
@@ -40,7 +40,7 @@
 
   <div class="field">
     <%= form.label :内容 %>
-    <%= form.text_field :content, id: 'output' %>
+    <%= form.text_area :content, id: 'output' %>
   </div>
 
   <div class="field">
@@ -59,7 +59,7 @@
           if (text.control && text.control.checked == true)
               generated_text = generated_text + "・" + text.innerText + "\n";
       });
-      document.getElementById("output").innerHTML = generated_text;
+      document.getElementById("output").value = generated_text;
     }
   </script>
 <% end %>
