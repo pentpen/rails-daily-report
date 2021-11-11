@@ -43,6 +43,8 @@
     <%= form.text_area :content, id: 'output' , class: 'form-control', rows: 10 %>
   </div>
 
+  <button onclick="copyToClipboard()" class="btn btn-primary">コピー</button>
+
   <div class="field">
     <%= form.label :報告日 %>
     <%= form.date_select :reported %>
@@ -61,5 +63,11 @@
       });
       document.getElementById("output").value = generated_text;
     }
+    function copyToClipboard() {
+            let copyTarget = document.getElementById("output");
+            copyTarget.select();
+            document.execCommand("Copy");
+            alert("コピーしました\n" + copyTarget.value);
+        }
   </script>
 <% end %>
